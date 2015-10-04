@@ -1,0 +1,6 @@
+<ul class="list-unstyled list-inline row">
+	<span class="col-lg-4">{{label}}:</span>
+	<li ng-repeat="star in stars track by $index" ng-class="{'star-earned': star.earned, 'star-unearned': !star.earned}">
+		<i class="fa fa-star"></i>
+	</li>
+</ul>
