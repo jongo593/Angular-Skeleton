@@ -20,11 +20,11 @@ angular.module('JonGoApp', [
   .factory('JGSocket', function (socketFactory){
       return function (nsp){
         return socketFactory({
-             ioSocket: io.connect('localhost:3000')
+             ioSocket: io.connect('localhost:3000', {forceNew: true})
         });
       };
 
   })
-  .run(function (JGSocket, MasterSocket){
-    MasterSocket.setSocket(JGSocket());
-  });
+  .config(['$tooltipProvider', function($tooltipProvider) {
+  $tooltipProvider.options({animation: false});
+}]);
