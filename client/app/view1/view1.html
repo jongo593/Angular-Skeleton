@@ -1,17 +1,28 @@
-<navbar></navbar>
 
-<header class="hero-unit" id="banner">
+<header class="hero-unit stretch-content" id="banner">
+	<navbar></navbar>
+
   <div class="container">
-    <h1>View1</h1>
-    <p class="lead">View 1 description</p>
+    <h1>Tic Tac Toe</h1>
+    <p class="lead">Single Player Tic Tac Toe - NodeJS</p>
   </div>
 </header>
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">view1</h1>
+    <div class="col-lg-12 text-center">
+      <h1>JG Tic Tac Toe!</h1>
+      <button class="btn btn-primary" ng-click="startGame()">Start a new Game</button>
 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9 col-lg-offset-3 text-center">
+      <div class="row tictactoe-row" ng-repeat="rows in gameBoard track by $index" ng-init="rowNumber = $index">
+        <div class="col-lg-1" ng-class="{'col-lg-offset-2':$index === 0}" ng-repeat="cell in rows track by $index">
+          <button class="btn btn-primary" ng-if="cell === 0" ng-click="selectCell(rowNumber,$index)"> &nbsp;</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

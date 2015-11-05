@@ -15,4 +15,16 @@ angular.module('JonGoApp', [
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
+  })
+
+  .factory('JGSocket', function (socketFactory){
+      return function (nsp){
+        return socketFactory({
+             ioSocket: io.connect('localhost:3000')
+        });
+      };
+
+  })
+  .run(function (JGSocket, MasterSocket){
+    MasterSocket.setSocket(JGSocket());
   });
